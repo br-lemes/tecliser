@@ -1,0 +1,14 @@
+local socket = require("socket")
+
+local server = socket.bind("*", 7070)
+while true do
+	local client = server:accept()
+	print("Connection from: " .. client:getpeername())
+	if client then
+		local msg = client:receive()
+		print("Received: " .. msg)
+		if msg then
+			client:send(msg:upper() .. "\n")
+		end
+	end
+end
