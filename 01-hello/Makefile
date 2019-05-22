@@ -1,10 +1,12 @@
 
 all: Hello.class
+	@echo "=== JAVA ==========================================================="
 	@java Hello
+	@echo "=== LUA  ==========================================================="
 	@lua hello.lua
 
 Hello.class: Hello.java
-	javac $^
+	@javac $^
 
 clean:
 	rm Hello.class
