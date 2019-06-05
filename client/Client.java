@@ -3,7 +3,7 @@ import java.net.*;
 
 class Client {
 	public static void main(String[] args) throws Exception {
-		Socket socket = new Socket("localhost", 7070);
+		Socket socket = new Socket("localhost", 7070); // Se não der, 6060
 		new DataOutputStream(socket.getOutputStream()).writeBytes("hello world!\n");
 		System.out.println(
 			new BufferedReader(new InputStreamReader(
