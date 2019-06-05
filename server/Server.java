@@ -5,7 +5,7 @@ class Server {
 	static final int PORT = 7070; // Se não der, 6060
 	public static void main(String[] args) throws Exception {
 		ServerSocket server = new ServerSocket(PORT);
-		System.out.println("Server listening to port: " + PORT);
+		System.out.println("Java server listening to port: " + PORT);
 		while (true) {
 			Socket client = server.accept();
 			System.out.println("\nConnection from: " + client.getInetAddress().getHostAddress());

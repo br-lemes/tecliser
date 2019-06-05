@@ -3,7 +3,7 @@ local socket = require("socket")
 local PORT = 7070 -- Se não der, 6060
 
 local server = socket.bind("*", PORT)
-print("Server listening to port: " .. PORT)
+print("Lua server listening to port: " .. PORT)
 while true do
 	local client = server:accept()
 	print("\nConnection from: " .. client:getpeername())
