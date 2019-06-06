@@ -3,13 +3,13 @@ local socket = require("socket")
 local PORT = 7070 -- Se não der, 6060
 
 local server = socket.bind("*", PORT)
-print("Lua server listening to port: " .. PORT)
+print("Servidor Lua escutando na porta: " .. PORT)
 while true do
 	local client = server:accept()
-	print("\nConnection from: " .. client:getpeername())
+	print("\nConexão de: " .. client:getpeername())
 	if client then
 		local msg = client:receive()
-		print("Received: " .. msg)
+		print("Recebido: " .. msg)
 		if msg then
 			client:send(msg:upper() .. "\n")
 		end
