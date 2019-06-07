@@ -10,11 +10,12 @@ public class Handler extends Thread {
 
 	public void run() {
 		try {
-			System.out.println("\nConexão de: " + client.getInetAddress().getHostAddress());
+			String address = client.getInetAddress().getHostAddress();
+			System.out.println("Conexão de: " + address);
 			DataOutputStream out = new DataOutputStream(client.getOutputStream());
 			BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
 			String msg = in.readLine();
-			System.out.println("Recebido: " + msg);
+			System.out.println("Recebido de " + address + ": " + msg);
 			out.writeBytes(msg.toUpperCase() + "\n");
 		} catch(IOException e) {
 			return;
