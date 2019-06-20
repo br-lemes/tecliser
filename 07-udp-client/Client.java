@@ -16,12 +16,11 @@ class Client {
 		byte[] recebeDados = new byte[1024];
 
 		// lê uma linha do teclado
-		String sentenca = new Scanner(System.in).nextLine();
-		enviaDados = sentenca.getBytes();
+		byte[] data = new Scanner(System.in).nextLine().getBytes();
 
 		// cria pacote com o dado, o endereço do server e porta do servidor
-		DatagramPacket enviaPacote = new DatagramPacket(enviaDados,
-		enviaDados.length, enderecoIP, PORT);
+		DatagramPacket enviaPacote = new DatagramPacket(data,
+		data.length, enderecoIP, PORT);
 
 		//envia o pacote
 		client.send(enviaPacote);
