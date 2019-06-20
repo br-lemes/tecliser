@@ -11,10 +11,7 @@ class Server {
 			String msg = new String(pkg.getData());
 			InetAddress address = pkg.getAddress();
 			byte[] data = msg.toUpperCase().getBytes();
-			DatagramPacket pacoteEnviado = new
-			DatagramPacket(data, data.length,
-			address, pkg.getPort());
-			server.send(pacoteEnviado);
+			server.send(new DatagramPacket(data, data.length, address, pkg.getPort()));
 		}
 	}
 }
