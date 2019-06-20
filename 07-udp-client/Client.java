@@ -7,7 +7,7 @@ class Client {
 	static final String SERVER = "localhost";
 	public static void main(String[] arg) throws Exception {
 		// declara socket cliente
-		DatagramSocket clienteSocket = new DatagramSocket();
+		DatagramSocket client = new DatagramSocket();
 
 		// obtem endereço IP do servidor com o DNS
 		InetAddress enderecoIP = InetAddress.getByName(SERVER);
@@ -24,14 +24,14 @@ class Client {
 		enviaDados.length, enderecoIP, PORT);
 
 		//envia o pacote
-		clienteSocket.send(enviaPacote);
+		client.send(enviaPacote);
 
 		// declara o pacote a ser recebido
 		DatagramPacket recebePacote = new DatagramPacket(recebeDados,
 		recebeDados.length);
 
 		// recebe pacote do servidor
-		clienteSocket.receive(recebePacote);
+		client.receive(recebePacote);
 
 		// separa somente o dado recebido
 		String sentencaModificada = new String(recebePacote.getData());
@@ -40,7 +40,7 @@ class Client {
 		sentencaModificada);
 
 		// fecha o cliente
-		clienteSocket.close();
+		client.close();
 
 	}
 }
