@@ -3,6 +3,7 @@ import java.net.*;
 
 class Client {
 	static final int PORT = 7070; // Se não der, 6060
+	static final String SERVER = "localhost";
 	public static void main(String[] arg) throws Exception {
 		// cria o stream do teclado
 		BufferedReader cadeiaUsuario = new BufferedReader(new InputStreamReader(System.in));
@@ -10,7 +11,7 @@ class Client {
 		DatagramSocket clienteSocket = new DatagramSocket();
 
 		// obtem endereço IP do servidor com o DNS
-		InetAddress enderecoIP = InetAddress.getByName("localhost");
+		InetAddress enderecoIP = InetAddress.getByName(SERVER);
 
 		byte[] enviaDados = new byte[1024];
 		byte[] recebeDados = new byte[1024];
