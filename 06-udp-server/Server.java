@@ -5,7 +5,6 @@ class Server {
 	static final int PORT = 7070; // Se não der, 6060
 	public static void main(String argv[]) throws Exception {
 		DatagramSocket server = new DatagramSocket(PORT);
-		byte[] dadosEnviados = new byte[1024];
 		while(true){
 			// declara o pacote a ser recebido
 			DatagramPacket pkg = new DatagramPacket(new byte[1024], 1024);
@@ -16,12 +15,10 @@ class Server {
 			String msg = new String(pkg.getData());
 			int port = pkg.getPort();
 			InetAddress address = pkg.getAddress();
-			// transforma em maiúsculas
-			String sentencaCapturada = msg.toUpperCase();
-			dadosEnviados = sentencaCapturada.getBytes();
+			byte[] data = msg.toUpperCase().getBytes();
 			// monta o pacote com enderço IP e porta
 			DatagramPacket pacoteEnviado = new
-			DatagramPacket(dadosEnviados, dadosEnviados.length,
+			DatagramPacket(data, data.length,
 			address, port);
 			// envia ao cliente
 			server.send(pacoteEnviado);
