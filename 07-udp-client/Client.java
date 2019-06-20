@@ -12,7 +12,6 @@ class Client {
 		// obtem endereço IP do servidor com o DNS
 		InetAddress enderecoIP = InetAddress.getByName(SERVER);
 
-		byte[] enviaDados = new byte[1024];
 		byte[] recebeDados = new byte[1024];
 
 		// lê uma linha do teclado
