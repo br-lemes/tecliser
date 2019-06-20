@@ -3,7 +3,7 @@ import java.net.*;
 
 class Client {
 	static final int PORT = 7070; // Se não der, 6060
-	public static void main(String argv[]) throws Exception {
+	public static void main(String[] arg) throws Exception {
 		// cria o stream do teclado
 		BufferedReader cadeiaUsuario = new BufferedReader(new InputStreamReader(System.in));
 		// declara socket cliente

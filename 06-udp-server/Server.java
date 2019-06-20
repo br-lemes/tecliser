@@ -3,7 +3,7 @@ import java.net.*;
 
 class Server {
 	static final int PORT = 7070; // Se não der, 6060
-	public static void main(String argv[]) throws Exception {
+	public static void main(String[] arg) throws Exception {
 		DatagramSocket server = new DatagramSocket(PORT);
 		System.out.println("Servidor UDP Java escutando na porta: " + PORT);
 		while(true){
