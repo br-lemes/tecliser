@@ -1,7 +1,8 @@
-import java.io.*; // classes para entrada e saída de dados
-import java.net.*; // classes para socket, servidorsocket e clientesocket
+import java.io.*;
+import java.net.*;
 
-public class Client {
+class Client {
+	static final int PORT = 7070; // Se não der, 6060
 	public static void main(String argv[]) throws Exception {
 		// cria o stream do teclado
 		BufferedReader cadeiaUsuario = new BufferedReader(new InputStreamReader(System.in));
@@ -20,7 +21,7 @@ public class Client {
 
 		// cria pacote com o dado, o endereço do server e porta do servidor
 		DatagramPacket enviaPacote = new DatagramPacket(enviaDados,
-		enviaDados.length, enderecoIP, 9876);
+		enviaDados.length, enderecoIP, PORT);
 
 		//envia o pacote
 		clienteSocket.send(enviaPacote);

@@ -1,11 +1,11 @@
 import java.io.*;
 import java.net.*;
 
-public class Server {
+class Server {
+	static final int PORT = 7070; // Se não der, 6060
 	public static void main(String argv[]) throws Exception {
 
-		// cria socket do servidor com a porta 9876
-		DatagramSocket servidorSocket = new DatagramSocket(9876);
+		DatagramSocket servidorSocket = new DatagramSocket(PORT);
 
 		byte[] dadosRecebidos = new byte[1024];
 		byte[] dadosEnviados = new byte[1024];
