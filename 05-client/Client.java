@@ -13,8 +13,7 @@ class Client {
 			out.writeBytes(arg[0] + "\n");
 		} else {
 			System.out.print("Digite uma mensagem: ");
-			Scanner in = new Scanner(System.in);
-			String msg = in.nextLine();
+			String msg = new Scanner(System.in).nextLine();
 			out.writeBytes(msg + "\n");
 		}
 		System.out.println("Resposta: " +

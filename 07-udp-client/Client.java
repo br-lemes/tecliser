@@ -1,12 +1,11 @@
 import java.io.*;
 import java.net.*;
+import java.util.Scanner;
 
 class Client {
 	static final int PORT = 7070; // Se não der, 6060
 	static final String SERVER = "localhost";
 	public static void main(String[] arg) throws Exception {
-		// cria o stream do teclado
-		BufferedReader cadeiaUsuario = new BufferedReader(new InputStreamReader(System.in));
 		// declara socket cliente
 		DatagramSocket clienteSocket = new DatagramSocket();
 
@@ -17,7 +16,7 @@ class Client {
 		byte[] recebeDados = new byte[1024];
 
 		// lê uma linha do teclado
-		String sentenca = cadeiaUsuario.readLine();
+		String sentenca = new Scanner(System.in).nextLine();
 		enviaDados = sentenca.getBytes();
 
 		// cria pacote com o dado, o endereço do server e porta do servidor
