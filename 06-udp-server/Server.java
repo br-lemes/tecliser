@@ -9,9 +9,8 @@ class Server {
 			DatagramPacket pkg = new DatagramPacket(new byte[1024], 1024);
 			server.receive(pkg);
 			String msg = new String(pkg.getData());
-			InetAddress address = pkg.getAddress();
 			byte[] data = msg.toUpperCase().getBytes();
-			server.send(new DatagramPacket(data, data.length, address, pkg.getPort()));
+			server.send(new DatagramPacket(data, data.length, pkg.getAddress(), pkg.getPort()));
 		}
 	}
 }
