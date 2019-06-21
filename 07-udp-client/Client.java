@@ -15,11 +15,11 @@ class Client {
 			data = new Scanner(System.in).nextLine().getBytes();
 		}
 		client.send(new DatagramPacket(data, data.length, InetAddress.getByName(SERVER), PORT));
+		System.out.println("Datagrama UDP enviado para " + SERVER + ":" + PORT);
 		DatagramPacket pkg = new DatagramPacket(new byte[1024], 1024);
 		client.receive(pkg);
 		String sentencaModificada = new String(pkg.getData());
-		System.out.println("Datagrama UDP enviado com sucesso" +
-		sentencaModificada);
+		System.out.println("Resposta: " + sentencaModificada);
 		client.close();
 	}
 }
