@@ -8,8 +8,7 @@ class Client {
 	public static void main(String[] arg) throws Exception {
 		DatagramSocket client = new DatagramSocket();
 		byte[] data = new Scanner(System.in).nextLine().getBytes();
-		DatagramPacket enviaPacote = new DatagramPacket(data, data.length, InetAddress.getByName(SERVER), PORT);
-		client.send(enviaPacote);
+		client.send(new DatagramPacket(data, data.length, InetAddress.getByName(SERVER), PORT));
 		DatagramPacket recebePacote = new DatagramPacket(new byte[1024], 1024);
 		client.receive(recebePacote);
 		String sentencaModificada = new String(recebePacote.getData());
