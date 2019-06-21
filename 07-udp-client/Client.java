@@ -18,8 +18,7 @@ class Client {
 		System.out.println("Datagrama UDP enviado para " + SERVER + ":" + PORT);
 		DatagramPacket pkg = new DatagramPacket(new byte[1024], 1024);
 		client.receive(pkg);
-		String sentencaModificada = new String(pkg.getData());
-		System.out.println("Resposta: " + sentencaModificada);
+		System.out.println("Resposta: " + new String(pkg.getData()));
 		client.close();
 	}
 }
