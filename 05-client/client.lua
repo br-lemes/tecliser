@@ -5,6 +5,7 @@ local SERVER = "localhost"
 
 local client = socket.tcp()
 local r, e = client:connect(SERVER, PORT)
+client:settimeout(10)
 if r then
 	print(string.format("Conectado em %s:%d", SERVER, PORT))
 	if arg[1] then
@@ -14,9 +15,13 @@ if r then
 		local msg = io.stdin:read("*l")
 		client:send(msg .. "\n")
 	end
-	local msg = client:receive()
+	local msg, e = client:receive()
 	client:close()
-	print(string.format("Resposta: %s", msg))
+	if msg then
+		print(string.format("Resposta: %s", msg))
+	else
+		print(string.format("Sem resposta: %s", e))
+	end
 else
 	print(string.format("Não foi possível conectar em %s:%d => %s", SERVER, PORT, e))
 end
