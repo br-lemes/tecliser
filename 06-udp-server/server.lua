@@ -1,6 +1,6 @@
 local socket = require("socket")
 
-local PORT = 7070 -- Se não ser, 6060
+local PORT = 7070 -- Se não der, 6060
 
 local server = socket.udp()
 server:setsockname("*", PORT)
